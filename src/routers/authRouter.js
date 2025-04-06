@@ -19,27 +19,11 @@ authRouter.post(
 authRouter.post('/signout', express.json(), authController.signOut);
 
 authRouter.post(
-  // This route has a different scenario,
-  '/password', // so it is described separately.
-  express.json(),
-  changePass,
-  authController.passwordChange,
-);
-
-authRouter.post(
   // this route is intended to be activated after the first
   '/password/:email',
   express.json(),
   changePass,
   authController.passwordChange,
-);
-
-authRouter.post(
-  //  this route have a same situation as in 'password' routers
-  '/email',
-  express.json(),
-  mailMiddleware,
-  authController.changeMail,
 );
 
 authRouter.post(

@@ -7,15 +7,12 @@ async function create(name, email, password) {
   const hashedPassword = await bcrypt.hash(password, saltRounds);
   const activationToken = uuidv4();
 
-  const created = await User.create(
-    {
-      name,
-      email,
-      password: hashedPassword,
-      activationToken,
-    },
-    { returning: true },
-  );
+  const created = await User.create({
+    name,
+    email,
+    password: hashedPassword,
+    activationToken,
+  });
 
   return created;
 }
