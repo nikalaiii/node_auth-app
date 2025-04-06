@@ -29,7 +29,8 @@ export async function changeMail(req, res) {
 
     await mailService.send(
       pastEmail,
-      `Your account email was changed', 'Now, your email on account is ${newEmail}`,
+      'Your account email was changed',
+      `Now, your email on account is ${newEmail}`,
     );
 
     res.status(200).json('Email was successfully changed.');

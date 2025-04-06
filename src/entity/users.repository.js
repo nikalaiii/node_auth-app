@@ -41,10 +41,7 @@ async function getByEmail(email) {
 }
 
 async function getByToken(activationToken) {
-  const foundUser = await User.findOne(
-    { where: { activationToken } },
-    { returning: true },
-  );
+  const foundUser = await User.findOne({ where: { activationToken } });
 
   if (!foundUser) {
     return undefined;

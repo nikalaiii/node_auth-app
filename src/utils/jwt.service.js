@@ -8,8 +8,6 @@ function sign(user) {
     expiresIn: '15min',
   });
 
-  console.log('SIGN ACCESS TOKEN:', newToken);
-
   return newToken;
 }
 
@@ -17,8 +15,6 @@ function verify(token) {
   try {
     return jwt.verify(token, process.env.JWT_ACCESS);
   } catch (e) {
-    console.error('ACCESS TOKEN ERROR:', e.message);
-
     return false;
   }
 }
@@ -35,8 +31,6 @@ function verifyRefresh(token) {
   try {
     return jwt.verify(token, process.env.JWT_REFRESH);
   } catch (e) {
-    console.error('REFRESH TOKEN ERROR:', e.message);
-
     return false;
   }
 }

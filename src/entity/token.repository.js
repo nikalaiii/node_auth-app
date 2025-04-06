@@ -38,7 +38,9 @@ async function deleteToken(id) {
 
 async function getTokens(req) {
   const authHeader = req.headers.authorization;
-  const accessToken = authHeader && authHeader.split(' ')[2];
+  const accessToken = authHeader?.startsWith('Bearer ')
+    ? authHeader.split(' ')[1]
+    : undefined;
 
   const refreshToken = req.cookies?.refreshToken;
 
